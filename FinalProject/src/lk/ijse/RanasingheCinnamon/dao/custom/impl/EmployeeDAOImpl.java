@@ -1,4 +1,4 @@
-package lk.ijse.RanasingheCinnamon.model;
+package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class EmployeeModel {
+public class EmployeeDAOImpl {
     public static boolean save(Employee employee) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO employee VALUES (?,?,?,?,?,?)";
         return CrudUtil.execute(sql, employee.getId(), employee.getRole(), employee.getName(), employee.getNicNo(),employee.getAddress(),employee.getContactNo());

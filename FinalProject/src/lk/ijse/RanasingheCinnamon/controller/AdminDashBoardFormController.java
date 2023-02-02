@@ -3,20 +3,17 @@ package lk.ijse.RanasingheCinnamon.controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import lk.ijse.RanasingheCinnamon.model.EmployeeModel;
-import lk.ijse.RanasingheCinnamon.model.PlaceOrderModel;
-import lk.ijse.RanasingheCinnamon.model.SupplierModel;
-import lk.ijse.RanasingheCinnamon.model.VehiclesModel;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.EmployeeDAOImpl;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.PlaceOrderDAOImpl;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.SupplierDAOImpl;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.VehiclesDAOImpl;
 import lk.ijse.RanasingheCinnamon.utill.Navigation;
 import lk.ijse.RanasingheCinnamon.utill.Routes;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.sql.SQLOutput;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -52,7 +49,7 @@ public class AdminDashBoardFormController{
 
     public void loadcustomerCount(){
         try {
-            int count = PlaceOrderModel.customerCount();
+            int count = PlaceOrderDAOImpl.customerCount();
             btnCusCount.setText(String.valueOf(count));
         }catch (Exception exception){
             System.out.println(exception);
@@ -62,7 +59,7 @@ public class AdminDashBoardFormController{
     public void loadEmployeeCount(){
         int empCount = 0;
         try {
-            empCount = EmployeeModel.employeeCount();
+            empCount = EmployeeDAOImpl.employeeCount();
         } catch (Exception exception) {
 
         }
@@ -71,7 +68,7 @@ public class AdminDashBoardFormController{
 
     public void loadSupplierCount(){
         try {
-            int count = SupplierModel.supplierCount();
+            int count = SupplierDAOImpl.supplierCount();
             btnSupCount.setText(String.valueOf(count));
         }catch (Exception exception){
             System.out.println(exception);
@@ -80,7 +77,7 @@ public class AdminDashBoardFormController{
 
     public void loadVehicleCount(){
         try {
-            int count = VehiclesModel.VehicleCount();
+            int count = VehiclesDAOImpl.VehicleCount();
             btnVehicleCount.setText(String.valueOf(count));
         }catch (Exception exception){
             System.out.println(exception);

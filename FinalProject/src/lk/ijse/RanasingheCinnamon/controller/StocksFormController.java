@@ -3,11 +3,8 @@ package lk.ijse.RanasingheCinnamon.controller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TableView;
-import lk.ijse.RanasingheCinnamon.model.StockModel;
-import lk.ijse.RanasingheCinnamon.model.SupplierModel;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.StockDAOImpl;
 import lk.ijse.RanasingheCinnamon.to.Stocks;
-import lk.ijse.RanasingheCinnamon.to.Supplier;
 
 import java.sql.SQLException;
 
@@ -26,7 +23,7 @@ public class StocksFormController {
 
         Stocks stocks = new Stocks(id, date, cost, Quantity);
 
-        boolean isAdded = StockModel.save(stocks);
+        boolean isAdded = StockDAOImpl.save(stocks);
 
         if (isAdded) {
             new Alert(Alert.AlertType.CONFIRMATION, "Stock Added").show();
@@ -37,7 +34,7 @@ public class StocksFormController {
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Stocks stocks= StockModel.search(txtStockId.getText());
+        Stocks stocks= StockDAOImpl.search(txtStockId.getText());
         if(stocks!=null) {
             txtDate.setText(stocks.getDate());
             txtCost.setText(stocks.getCost());
@@ -46,7 +43,7 @@ public class StocksFormController {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        boolean isDelete =  StockModel.delete(txtStockId.getText());
+        boolean isDelete =  StockDAOImpl.delete(txtStockId.getText());
 
         if(isDelete){
             new Alert(Alert.AlertType.CONFIRMATION,"Stock Delete Successful").show();
@@ -63,7 +60,7 @@ public class StocksFormController {
 
         Stocks stocks = new Stocks(id,date,cost,quantity);
 
-        boolean isUpdate = StockModel.update(stocks);
+        boolean isUpdate = StockDAOImpl.update(stocks);
 
         if(isUpdate){
             new Alert(Alert.AlertType.CONFIRMATION,"Details Updated").show();

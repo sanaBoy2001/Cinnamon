@@ -11,9 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
-import lk.ijse.RanasingheCinnamon.model.EmployeeModel;
-import lk.ijse.RanasingheCinnamon.model.PlaceOrderModel;
-import lk.ijse.RanasingheCinnamon.to.Employee;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.PlaceOrderDAOImpl;
 import lk.ijse.RanasingheCinnamon.to.PlaceOrder;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
@@ -21,7 +19,6 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class PlaceOrderFormController implements Initializable {
@@ -74,7 +71,7 @@ public class PlaceOrderFormController implements Initializable {
         PlaceOrder placeOrder = new PlaceOrder(CId, Name, Address, ContactNo, OId, Date, Details, Qty, total);
 
 
-            boolean isAdd = PlaceOrderModel.orderPlace(placeOrder);
+            boolean isAdd = PlaceOrderDAOImpl.orderPlace(placeOrder);
             if (isAdd) {
                 new Alert(Alert.AlertType.CONFIRMATION, "added Success").show();
             } else {
@@ -96,7 +93,7 @@ public class PlaceOrderFormController implements Initializable {
 
     public void btnSearchOnAction(ActionEvent actionEvent) {
         try {
-            PlaceOrder placeOrder = PlaceOrderModel.searchCustomer(txtCustomerId.getText());
+            PlaceOrder placeOrder = PlaceOrderDAOImpl.searchCustomer(txtCustomerId.getText());
             if (placeOrder != null) {
                 txtName.setText(placeOrder.getName());
                 txtAddress.setText(placeOrder.getAddress());
@@ -117,7 +114,7 @@ public class PlaceOrderFormController implements Initializable {
 
     public void loadCustomerData(){
         try {
-            ObservableList<PlaceOrder> customer = PlaceOrderModel.searchAllCustomer();
+            ObservableList<PlaceOrder> customer = PlaceOrderDAOImpl.searchAllCustomer();
             tblAllData.setItems(customer);
         }catch (Exception e){
 

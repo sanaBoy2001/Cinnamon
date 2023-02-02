@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.RanasingheCinnamon.model.RegisterModel;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.RegisterDAOImpl;
 import lk.ijse.RanasingheCinnamon.to.Register;
 import lk.ijse.RanasingheCinnamon.utill.Navigation;
 import lk.ijse.RanasingheCinnamon.utill.Routes;
@@ -34,7 +34,7 @@ public class RegisterFormController {
 
         Register register = new Register(UId,Uname,Uemail,Uaddress,UtelNo,UserName,password);
 
-        boolean isAdded = RegisterModel.save(register);
+        boolean isAdded = RegisterDAOImpl.save(register);
 
         if(isAdded){
             new Alert(Alert.AlertType.CONFIRMATION,"Register Completed").show();

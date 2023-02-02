@@ -8,7 +8,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
-import lk.ijse.RanasingheCinnamon.model.*;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.DeliveriesDAOImpl;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.EmployeeDAOImpl;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.OrdersDAOImpl;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.VehiclesDAOImpl;
 import lk.ijse.RanasingheCinnamon.to.Deliveries;
 
 import java.net.URL;
@@ -36,7 +39,7 @@ public class DeliveriesFormController implements Initializable {
     private void loadOrderId() {
         try {
             ObservableList<String> observableList = FXCollections.observableArrayList();
-            ArrayList<String> idList = OrdersModel.loadOrderId();
+            ArrayList<String> idList = OrdersDAOImpl.loadOrderId();
 
             for (String id : idList) {
                 observableList.add(id);
@@ -49,7 +52,7 @@ public class DeliveriesFormController implements Initializable {
     private void loadEmployeeId() {
         try {
             ObservableList<String> observableList = FXCollections.observableArrayList();
-            ArrayList<String> idList = EmployeeModel.loadEmployeeId();
+            ArrayList<String> idList = EmployeeDAOImpl.loadEmployeeId();
 
             for (String id : idList) {
                 observableList.add(id);
@@ -62,7 +65,7 @@ public class DeliveriesFormController implements Initializable {
     private void loadVehicleId() {
         try {
             ObservableList<String> observableList = FXCollections.observableArrayList();
-            ArrayList<String> idList = VehiclesModel.loadVehicleId();
+            ArrayList<String> idList = VehiclesDAOImpl.loadVehicleId();
 
             for (String id : idList) {
                 observableList.add(id);
@@ -83,7 +86,7 @@ public class DeliveriesFormController implements Initializable {
 
         Deliveries deliveries = new Deliveries(Id,orderId,employeeId,vehicleId,distance,route);
 
-        boolean isAdded = DeliveriesModel.save(deliveries);
+        boolean isAdded = DeliveriesDAOImpl.save(deliveries);
 
         if (isAdded) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deliverie Added").show();
@@ -95,7 +98,7 @@ public class DeliveriesFormController implements Initializable {
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Deliveries deliveries= DeliveriesModel.search(txtDeliverId.getText());
+        Deliveries deliveries= DeliveriesDAOImpl.search(txtDeliverId.getText());
         if(deliveries!=null) {
             cmbOrderId.setValue(deliveries.getOrderId());
             cmbEmployeeId.setValue(deliveries.getEmployeeId());
@@ -106,7 +109,7 @@ public class DeliveriesFormController implements Initializable {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        boolean isDelete =  DeliveriesModel.delete(txtDeliverId.getText());
+        boolean isDelete =  DeliveriesDAOImpl.delete(txtDeliverId.getText());
 
         if(isDelete){
             new Alert(Alert.AlertType.CONFIRMATION,"Deliver Delete Successful").show();
@@ -124,7 +127,7 @@ public class DeliveriesFormController implements Initializable {
 
         Deliveries deliveries = new Deliveries(Id,orderId,employeeId,vehicleId, distance, route);
 
-        boolean isUpdate = DeliveriesModel.update(deliveries);
+        boolean isUpdate = DeliveriesDAOImpl.update(deliveries);
 
         if(isUpdate){
             new Alert(Alert.AlertType.CONFIRMATION,"Details Updated").show();

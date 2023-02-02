@@ -1,13 +1,12 @@
-package lk.ijse.RanasingheCinnamon.model;
+package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
 import lk.ijse.RanasingheCinnamon.to.Export;
-import lk.ijse.RanasingheCinnamon.to.Supplier;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ExportModel {
+public class ExportDAOImpl {
     public static boolean save(Export export) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO export VALUES = (?,?,?,?)";
         return CrudUtil.execute(sql,export.getId(),export.getDate(),export.getLocation(),export.getStatus());

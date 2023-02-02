@@ -1,4 +1,4 @@
-package lk.ijse.RanasingheCinnamon.model;
+package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
 
 import lk.ijse.RanasingheCinnamon.to.PlaceOrder;
@@ -6,7 +6,7 @@ import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 
 import java.sql.SQLException;
 
-public class OrderDetailModel {
+public class OrderDetailDAOImpl {
     public static boolean detail(PlaceOrder placeOrder) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("INSERT INTO orderdetail VALUES (?,?)",
                 placeOrder.getCId(),

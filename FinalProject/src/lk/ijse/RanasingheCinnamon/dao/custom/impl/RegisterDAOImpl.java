@@ -1,11 +1,11 @@
-package lk.ijse.RanasingheCinnamon.model;
+package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
 import lk.ijse.RanasingheCinnamon.to.Register;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 
 import java.sql.SQLException;
 
-public class RegisterModel {
+public class RegisterDAOImpl {
     public static boolean save(Register register) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO user VALUES (?,?,?,?,?,?,?)";
         return CrudUtil.execute(sql,register.getUId(),register.getUname(),register.getUemail(),register.getUaddress(),register.getUtelNo(),register.getUserName(),register.getPassword());

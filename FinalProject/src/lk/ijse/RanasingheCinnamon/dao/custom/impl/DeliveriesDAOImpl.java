@@ -1,4 +1,4 @@
-package lk.ijse.RanasingheCinnamon.model;
+package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
 import lk.ijse.RanasingheCinnamon.to.Deliveries;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
@@ -6,7 +6,7 @@ import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DeliveriesModel {
+public class DeliveriesDAOImpl {
     public static boolean save(Deliveries deliveries) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO transport VALUES (?,?,?,?,?,?)";
         return CrudUtil.execute(sql,deliveries.getId(),deliveries.getOrderId(),deliveries.getEmployeeId(),deliveries.getVehicleId(),deliveries.getDistance(),deliveries.getRoute());

@@ -1,14 +1,13 @@
-package lk.ijse.RanasingheCinnamon.model;
+package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
 import lk.ijse.RanasingheCinnamon.to.Stocks;
-import lk.ijse.RanasingheCinnamon.to.Supplier;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class StockModel {
+public class StockDAOImpl {
     public static boolean save(Stocks stocks) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO stock VALUES (?,?,?,?)";
         return CrudUtil.execute(sql,stocks.getId(),stocks.getDate(),stocks.getCost(),stocks.getQuantity());

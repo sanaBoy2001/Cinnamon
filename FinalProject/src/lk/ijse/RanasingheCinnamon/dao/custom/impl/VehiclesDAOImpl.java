@@ -1,6 +1,5 @@
-package lk.ijse.RanasingheCinnamon.model;
+package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
-import lk.ijse.RanasingheCinnamon.to.Supplier;
 import lk.ijse.RanasingheCinnamon.to.Vehicles;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 
@@ -8,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class VehiclesModel {
+public class VehiclesDAOImpl {
     public static boolean save(Vehicles vehicles) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO vehicle VALUES (?,?,?,?)";
         return CrudUtil.execute(sql,vehicles.getId(),vehicles.getBrand(),vehicles.getFuelCapacity(),vehicles.getCapacity());

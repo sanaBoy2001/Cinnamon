@@ -1,4 +1,4 @@
-package lk.ijse.RanasingheCinnamon.model;
+package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,17 +9,17 @@ import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PlaceOrderModel { //transaction (Updates orders,payment,customer tables)
+public class PlaceOrderDAOImpl { //transaction (Updates orders,payment,customer tables)
     public static boolean orderPlace(PlaceOrder placeOrder) throws SQLException, ClassNotFoundException {
         try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
-            boolean add = PlaceOrderModel.addCustomer(placeOrder);
+            boolean add = PlaceOrderDAOImpl.addCustomer(placeOrder);
             if (add) {
-                boolean isadd = OrdersModel.addOrder(placeOrder);
+                boolean isadd = OrdersDAOImpl.addOrder(placeOrder);
                 if (isadd) {
-                    boolean pay = PaymentsModel.addTotal(placeOrder);
+                    boolean pay = PaymentsDAOImpl.addTotal(placeOrder);
                     if (pay) {
-                        boolean Details = OrderDetailModel.detail(placeOrder);
+                        boolean Details = OrderDetailDAOImpl.detail(placeOrder);
                         if (Details) {
                             DBConnection.getInstance().getConnection().commit();
                             return true;

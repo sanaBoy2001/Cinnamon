@@ -1,22 +1,12 @@
 package lk.ijse.RanasingheCinnamon.controller;
 
 import com.jfoenix.controls.JFXTextField;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import lk.ijse.RanasingheCinnamon.model.EmployeeModel;
-import lk.ijse.RanasingheCinnamon.model.SupplierModel;
-import lk.ijse.RanasingheCinnamon.model.VehiclesModel;
-import lk.ijse.RanasingheCinnamon.to.Supplier;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.VehiclesDAOImpl;
 import lk.ijse.RanasingheCinnamon.to.Vehicles;
 
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class VehiclesFormController {
     public JFXTextField txtVehicleId;
@@ -33,7 +23,7 @@ public class VehiclesFormController {
 
         Vehicles vehicles = new Vehicles(Id,brand,fuelCapacity,capacity);
 
-        boolean isAdded = VehiclesModel.save(vehicles);
+        boolean isAdded = VehiclesDAOImpl.save(vehicles);
 
         if (isAdded) {
             new Alert(Alert.AlertType.CONFIRMATION, "Vehicle Added").show();
@@ -45,7 +35,7 @@ public class VehiclesFormController {
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Vehicles vehicles= VehiclesModel.search(txtVehicleId.getText());
+        Vehicles vehicles= VehiclesDAOImpl.search(txtVehicleId.getText());
         if(vehicles!=null) {
             txtBrand.setText(vehicles.getBrand());
             txtFuelCapacity.setText(vehicles.getFuelCapacity());
@@ -61,7 +51,7 @@ public class VehiclesFormController {
 
         Vehicles vehicles = new Vehicles(Id,brand,fuelCapacity,capacity);
 
-        boolean isUpdate = VehiclesModel.update(vehicles);
+        boolean isUpdate = VehiclesDAOImpl.update(vehicles);
 
         if(isUpdate){
             new Alert(Alert.AlertType.CONFIRMATION,"Details Updated").show();
@@ -73,7 +63,7 @@ public class VehiclesFormController {
 
 
     public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        boolean isDelete =  VehiclesModel.delete(txtVehicleId.getText());
+        boolean isDelete =  VehiclesDAOImpl.delete(txtVehicleId.getText());
 
         if(isDelete){
             new Alert(Alert.AlertType.CONFIRMATION,"Vehicle Delete Successful").show();

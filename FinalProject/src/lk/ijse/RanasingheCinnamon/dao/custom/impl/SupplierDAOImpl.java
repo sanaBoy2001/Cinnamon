@@ -1,4 +1,4 @@
-package lk.ijse.RanasingheCinnamon.model;
+package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
 import lk.ijse.RanasingheCinnamon.to.Supplier;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
@@ -6,7 +6,7 @@ import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SupplierModel {
+public class SupplierDAOImpl {
     public static boolean save(Supplier supplier) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO supplier VALUES (?,?,?,?,?,?)";
         return CrudUtil.execute(sql,supplier.getId(),supplier.getName(),supplier.getAddress(),supplier.getContactNo(),supplier.getSuppliedQty(),supplier.getCost());
