@@ -22,7 +22,7 @@ public class ResetPasswordFormController {
         String newPassword = txtNewPassword.getText();
         String ConfirmPassword = txtConfirmPassword.getText();
 
-        Register register = new Register(userName,newPassword,ConfirmPassword);
+        RegisterDTO register = new RegisterDTO(userName,newPassword,ConfirmPassword);
         boolean isUpdate = RegisterModel.updatePassword(register);
         if (isUpdate){
             new Alert(Alert.AlertType.CONFIRMATION,"Password Reset Success").show();

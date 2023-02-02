@@ -25,7 +25,7 @@ public class Navigation {
                 initUI("AdminDashBoardForm.fxml");
                 break;
             case REGISTER:
-                window.setTitle(" Register Form");
+                window.setTitle(" RegisterDTO Form");
                 initUI("RegisterForm.fxml");
                 break;
             case FORGOT:

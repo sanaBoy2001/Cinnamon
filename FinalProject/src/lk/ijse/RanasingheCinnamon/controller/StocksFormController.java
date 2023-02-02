@@ -4,7 +4,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.StockDAOImpl;
-import lk.ijse.RanasingheCinnamon.to.Stocks;
+import lk.ijse.RanasingheCinnamon.dto.StocksDTO;
 
 import java.sql.SQLException;
 
@@ -21,7 +21,7 @@ public class StocksFormController {
         String cost = txtCost.getText();
         String Quantity = txtQuantity.getText();
 
-        Stocks stocks = new Stocks(id, date, cost, Quantity);
+        StocksDTO stocks = new StocksDTO(id, date, cost, Quantity);
 
         boolean isAdded = StockDAOImpl.save(stocks);
 
@@ -34,7 +34,7 @@ public class StocksFormController {
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Stocks stocks= StockDAOImpl.search(txtStockId.getText());
+        StocksDTO stocks= StockDAOImpl.search(txtStockId.getText());
         if(stocks!=null) {
             txtDate.setText(stocks.getDate());
             txtCost.setText(stocks.getCost());
@@ -58,7 +58,7 @@ public class StocksFormController {
         String cost = txtCost.getText();
         String quantity = txtQuantity.getText();
 
-        Stocks stocks = new Stocks(id,date,cost,quantity);
+        StocksDTO stocks = new StocksDTO(id,date,cost,quantity);
 
         boolean isUpdate = StockDAOImpl.update(stocks);
 

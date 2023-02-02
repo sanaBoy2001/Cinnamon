@@ -1,11 +1,11 @@
-package lk.ijse.RanasingheCinnamon.to;
+package lk.ijse.RanasingheCinnamon.dto;
 
-public class Payments {
+public class PaymentsDTO {
     private String Id;
     private String Date;
     private String Amount;
 
-    public Payments(String id, String date, String Amount) {
+    public PaymentsDTO(String id, String date, String Amount) {
         this.Id = id;
         this.Date = date;
         this.Amount = Amount;

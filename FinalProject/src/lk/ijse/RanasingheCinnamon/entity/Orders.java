@@ -1,24 +1,35 @@
-package lk.ijse.RanasingheCinnamon.to;
+package lk.ijse.RanasingheCinnamon.entity;
 
 public class Orders {
-    private String oId;
-    private String Id;
+    private String orderId;
+    private String cusId;
     private String date;
     private String details;
     private String quantity;
-    public Orders(String id, String date, String details, String quantity) {
-        this.Id = id;
+
+    public Orders(String orderId, String cusId, String date, String details, String quantity) {
+        this.orderId = orderId;
+        this.cusId = cusId;
         this.date = date;
         this.details = details;
         this.quantity = quantity;
     }
 
-
-    public String getId() {
-        return Id;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setId(String id) { this.Id = id; }
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getCusId() {
+        return cusId;
+    }
+
+    public void setCusId(String cusId) {
+        this.cusId = cusId;
+    }
 
     public String getDate() {
         return date;

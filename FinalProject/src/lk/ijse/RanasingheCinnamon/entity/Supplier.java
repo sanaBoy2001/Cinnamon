@@ -1,29 +1,28 @@
-package lk.ijse.RanasingheCinnamon.to;
+package lk.ijse.RanasingheCinnamon.entity;
 
 public class Supplier {
-    private String id;
+    private String supplierId;
     private String name;
     private String address;
     private String contactNo;
-
     private String suppliedQty;
-    private Double cost;
+    private String Cost;
 
-    public Supplier(String id, String name, String address, String contactNo, String suppliedQty, Double cost) {
-        this.id = id;
+    public Supplier(String supplierId, String name, String address, String contactNo, String suppliedQty, String cost) {
+        this.supplierId = supplierId;
         this.name = name;
         this.address = address;
         this.contactNo = contactNo;
         this.suppliedQty = suppliedQty;
-        this.cost = cost;
+        Cost = cost;
     }
 
-    public String getId() {
-        return id;
+    public String getSupplierId() {
+        return supplierId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setSupplierId(String supplierId) {
+        this.supplierId = supplierId;
     }
 
     public String getName() {
@@ -58,11 +57,11 @@ public class Supplier {
         this.suppliedQty = suppliedQty;
     }
 
-    public Double getCost() {
-        return cost;
+    public String getCost() {
+        return Cost;
     }
 
     public void setCost(String cost) {
-        this.cost = Double.valueOf(cost);
+        Cost = cost;
     }
 }

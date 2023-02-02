@@ -1,7 +1,7 @@
 package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
 
-import lk.ijse.RanasingheCinnamon.to.PlaceOrder;
+import lk.ijse.RanasingheCinnamon.dto.PlaceOrderDTO;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 
 import java.sql.ResultSet;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class OrdersDAOImpl {
 
-    public static boolean addOrder(PlaceOrder placeOrder) throws SQLException, ClassNotFoundException {
+    public static boolean addOrder(PlaceOrderDTO placeOrder) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("INSERT INTO orders VALUES (?,?,?,?,?)",
                 placeOrder.getoId(),
                 placeOrder.getCId(),

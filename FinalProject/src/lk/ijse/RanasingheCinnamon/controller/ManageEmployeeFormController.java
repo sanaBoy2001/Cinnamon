@@ -9,7 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.EmployeeDAOImpl;
-import lk.ijse.RanasingheCinnamon.to.Employee;
+import lk.ijse.RanasingheCinnamon.dto.EmployeeDTO;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -43,12 +43,12 @@ public class ManageEmployeeFormController implements Initializable {
         String address = txtAddress.getText();
         String contactNo = txtContactNo.getText();
 
-        Employee employee = new Employee(Id,role,name,nicNo,address,contactNo);
+        EmployeeDTO employee = new EmployeeDTO(Id,role,name,nicNo,address,contactNo);
 
         boolean isAdded = EmployeeDAOImpl.save(employee);
 
         if (isAdded) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Employee Added").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "EmployeeDTO Added").show();
         }
         else {
             new Alert(Alert.AlertType.CONFIRMATION,"Unsuccessful");
@@ -57,7 +57,7 @@ public class ManageEmployeeFormController implements Initializable {
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Employee employee = EmployeeDAOImpl.searchEmployee(txtEmployeeId.getText());
+        EmployeeDTO employee = EmployeeDAOImpl.searchEmployee(txtEmployeeId.getText());
         if (employee != null) {
             txtRole.setText(employee.getRole());
             txtName.setText(employee.getName());
@@ -75,7 +75,7 @@ public class ManageEmployeeFormController implements Initializable {
             String address = txtAddress.getText();
             String contactNo = txtContactNo.getText();
 
-            Employee employee = new Employee(Id,role,name,nicNo,address,contactNo);
+            EmployeeDTO employee = new EmployeeDTO(Id,role,name,nicNo,address,contactNo);
 
             boolean isUpdate = EmployeeDAOImpl.update(employee);
             if(isUpdate){
@@ -90,14 +90,14 @@ public class ManageEmployeeFormController implements Initializable {
         boolean isDelete =  EmployeeDAOImpl.delete(txtEmployeeId.getText());
 
         if(isDelete){
-            new Alert(Alert.AlertType.CONFIRMATION,"Employee Delete Successful").show();
+            new Alert(Alert.AlertType.CONFIRMATION,"EmployeeDTO Delete Successful").show();
         }
         clearTxt();
     }
 
     public void loadEmployeeData(){
         try {
-            ObservableList<Employee> employee = EmployeeDAOImpl.searchAllEmployee();
+            ObservableList<EmployeeDTO> employee = EmployeeDAOImpl.searchAllEmployee();
             tblManageEmployee.setItems(employee);
         }catch (Exception e){
 

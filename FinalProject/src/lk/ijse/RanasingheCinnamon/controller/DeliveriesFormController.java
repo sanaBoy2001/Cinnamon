@@ -12,7 +12,7 @@ import lk.ijse.RanasingheCinnamon.dao.custom.impl.DeliveriesDAOImpl;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.EmployeeDAOImpl;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.OrdersDAOImpl;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.VehiclesDAOImpl;
-import lk.ijse.RanasingheCinnamon.to.Deliveries;
+import lk.ijse.RanasingheCinnamon.dto.DeliveriesDTO;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -84,7 +84,7 @@ public class DeliveriesFormController implements Initializable {
         String route = txtRoute.getText();
 
 
-        Deliveries deliveries = new Deliveries(Id,orderId,employeeId,vehicleId,distance,route);
+        DeliveriesDTO deliveries = new DeliveriesDTO(Id,orderId,employeeId,vehicleId,distance,route);
 
         boolean isAdded = DeliveriesDAOImpl.save(deliveries);
 
@@ -98,7 +98,7 @@ public class DeliveriesFormController implements Initializable {
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Deliveries deliveries= DeliveriesDAOImpl.search(txtDeliverId.getText());
+        DeliveriesDTO deliveries= DeliveriesDAOImpl.search(txtDeliverId.getText());
         if(deliveries!=null) {
             cmbOrderId.setValue(deliveries.getOrderId());
             cmbEmployeeId.setValue(deliveries.getEmployeeId());
@@ -125,7 +125,7 @@ public class DeliveriesFormController implements Initializable {
         String distance = txtDistance.getText();
         String route = txtRoute.getText();
 
-        Deliveries deliveries = new Deliveries(Id,orderId,employeeId,vehicleId, distance, route);
+        DeliveriesDTO deliveries = new DeliveriesDTO(Id,orderId,employeeId,vehicleId, distance, route);
 
         boolean isUpdate = DeliveriesDAOImpl.update(deliveries);
 

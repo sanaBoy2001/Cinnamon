@@ -1,24 +1,24 @@
-package lk.ijse.RanasingheCinnamon.to;
+package lk.ijse.RanasingheCinnamon.entity;
 
-public class Vehicles {
-    private String id;
+public class Vehicle {
+    private String vehicleId;
     private String brand;
     private String fuelCapacity;
     private String capacity;
 
-    public Vehicles(String id, String brand, String fuelCapacity, String capacity) {
-        this.id = id;
+    public Vehicle(String vehicleId, String brand, String fuelCapacity, String capacity) {
+        this.vehicleId = vehicleId;
         this.brand = brand;
         this.fuelCapacity = fuelCapacity;
         this.capacity = capacity;
     }
 
-    public String getId() {
-        return id;
+    public String getVehicleId() {
+        return vehicleId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setVehicleId(String vehicleId) {
+        this.vehicleId = vehicleId;
     }
 
     public String getBrand() {

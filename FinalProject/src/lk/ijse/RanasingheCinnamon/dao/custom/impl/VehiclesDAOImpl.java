@@ -1,6 +1,6 @@
 package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
-import lk.ijse.RanasingheCinnamon.to.Vehicles;
+import lk.ijse.RanasingheCinnamon.dto.VehiclesDTO;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 
 import java.sql.ResultSet;
@@ -8,23 +8,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class VehiclesDAOImpl {
-    public static boolean save(Vehicles vehicles) throws SQLException, ClassNotFoundException {
+    public static boolean save(VehiclesDTO vehicles) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO vehicle VALUES (?,?,?,?)";
         return CrudUtil.execute(sql,vehicles.getId(),vehicles.getBrand(),vehicles.getFuelCapacity(),vehicles.getCapacity());
 
     }
 
-    public static Vehicles search(String ID) throws SQLException, ClassNotFoundException {
+    public static VehiclesDTO search(String ID) throws SQLException, ClassNotFoundException {
         String sql = "SELECT * FROM vehicle WHERE vehicleId = '"+ID+"'";
         ResultSet result = CrudUtil.execute(sql);
 
         if(result.next()){
-            return new Vehicles(result.getString("vehicleId"),result.getString("brand"), result.getString("fuelCapacity"),result.getString("capacity"));
+            return new VehiclesDTO(result.getString("vehicleId"),result.getString("brand"), result.getString("fuelCapacity"),result.getString("capacity"));
         }
         return null;
     }
 
-    public static boolean update(Vehicles vehicles) throws SQLException, ClassNotFoundException {
+    public static boolean update(VehiclesDTO vehicles) throws SQLException, ClassNotFoundException {
         String sql = "UPDATE vehicle SET brand = ? , fuelCapacity = ? , capacity = ? WHERE vehicleId = ?";
         return CrudUtil.execute(sql, vehicles.getBrand(), vehicles.getFuelCapacity(), vehicles.getCapacity(), vehicles.getId());
     }

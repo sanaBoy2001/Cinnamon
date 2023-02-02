@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.PlaceOrderDAOImpl;
-import lk.ijse.RanasingheCinnamon.to.PlaceOrder;
+import lk.ijse.RanasingheCinnamon.dto.PlaceOrderDTO;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
@@ -68,7 +68,7 @@ public class PlaceOrderFormController implements Initializable {
 
         Double total = Double.valueOf(txtTotal1.getText());
 
-        PlaceOrder placeOrder = new PlaceOrder(CId, Name, Address, ContactNo, OId, Date, Details, Qty, total);
+        PlaceOrderDTO placeOrder = new PlaceOrderDTO(CId, Name, Address, ContactNo, OId, Date, Details, Qty, total);
 
 
             boolean isAdd = PlaceOrderDAOImpl.orderPlace(placeOrder);
@@ -93,7 +93,7 @@ public class PlaceOrderFormController implements Initializable {
 
     public void btnSearchOnAction(ActionEvent actionEvent) {
         try {
-            PlaceOrder placeOrder = PlaceOrderDAOImpl.searchCustomer(txtCustomerId.getText());
+            PlaceOrderDTO placeOrder = PlaceOrderDAOImpl.searchCustomer(txtCustomerId.getText());
             if (placeOrder != null) {
                 txtName.setText(placeOrder.getName());
                 txtAddress.setText(placeOrder.getAddress());
@@ -114,7 +114,7 @@ public class PlaceOrderFormController implements Initializable {
 
     public void loadCustomerData(){
         try {
-            ObservableList<PlaceOrder> customer = PlaceOrderDAOImpl.searchAllCustomer();
+            ObservableList<PlaceOrderDTO> customer = PlaceOrderDAOImpl.searchAllCustomer();
             tblAllData.setItems(customer);
         }catch (Exception e){
 

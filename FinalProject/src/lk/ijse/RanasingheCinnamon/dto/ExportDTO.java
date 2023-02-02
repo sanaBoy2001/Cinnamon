@@ -1,12 +1,12 @@
-package lk.ijse.RanasingheCinnamon.to;
+package lk.ijse.RanasingheCinnamon.dto;
 
-public class Export {
+public class ExportDTO {
     private String id;
     private String date;
     private String location;
     private String status;
 
-    public Export(String id, String date, String country, String status) {
+    public ExportDTO(String id, String date, String country, String status) {
         this.id = id;
         this.date = date;
         this.location = country;

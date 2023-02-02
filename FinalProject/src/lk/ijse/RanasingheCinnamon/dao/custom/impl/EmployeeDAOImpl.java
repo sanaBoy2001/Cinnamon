@@ -2,7 +2,7 @@ package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import lk.ijse.RanasingheCinnamon.to.Employee;
+import lk.ijse.RanasingheCinnamon.dto.EmployeeDTO;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 
 import java.sql.ResultSet;
@@ -10,23 +10,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EmployeeDAOImpl {
-    public static boolean save(Employee employee) throws SQLException, ClassNotFoundException {
+    public static boolean save(EmployeeDTO employee) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO employee VALUES (?,?,?,?,?,?)";
         return CrudUtil.execute(sql, employee.getId(), employee.getRole(), employee.getName(), employee.getNicNo(),employee.getAddress(),employee.getContactNo());
     }
 
-    public static Employee searchEmployee(String ID) throws SQLException, ClassNotFoundException {
+    public static EmployeeDTO searchEmployee(String ID) throws SQLException, ClassNotFoundException {
         String sql = "SELECT * FROM employee WHERE employeeId = '" +ID+ "'";
         ResultSet result = CrudUtil.execute(sql);
 
         if (result.next()) {
-            return new Employee(result.getString("employeeId"), result.getString("role"), result.getString("name"), result.getString("nicNo"), result.getString("address"),result.getString("contactNo"));
+            return new EmployeeDTO(result.getString("employeeId"), result.getString("role"), result.getString("name"), result.getString("nicNo"), result.getString("address"),result.getString("contactNo"));
         }
         return null;
 
     }
 
-    public static boolean update(Employee employee) throws SQLException, ClassNotFoundException {
+    public static boolean update(EmployeeDTO employee) throws SQLException, ClassNotFoundException {
         String sql = "UPDATE employee SET role = ? , name = ? , nicNo = ? , address = ? ,contactNo = ? WHERE employeeId = ?";
         return CrudUtil.execute(sql, employee.getRole(), employee.getName(),employee.getNicNo(),employee.getAddress(),employee.getContactNo(),employee.getId());
     }
@@ -48,13 +48,13 @@ public class EmployeeDAOImpl {
 
     }
 
-    public static ObservableList<Employee> searchAllEmployee() throws SQLException, ClassNotFoundException {
+    public static ObservableList<EmployeeDTO> searchAllEmployee() throws SQLException, ClassNotFoundException {
 
-        ObservableList<Employee> list = FXCollections.observableArrayList();
+        ObservableList<EmployeeDTO> list = FXCollections.observableArrayList();
         String sql = "SELECT * FROM employee";
         ResultSet result = CrudUtil.execute(sql);
         while (result.next()){
-            Employee employee = new Employee(result.getString(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6));
+            EmployeeDTO employee = new EmployeeDTO(result.getString(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6));
             list.add(employee);
         }
         return list;

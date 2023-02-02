@@ -4,7 +4,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.VehiclesDAOImpl;
-import lk.ijse.RanasingheCinnamon.to.Vehicles;
+import lk.ijse.RanasingheCinnamon.dto.VehiclesDTO;
 
 import java.sql.SQLException;
 
@@ -21,7 +21,7 @@ public class VehiclesFormController {
         String fuelCapacity = txtFuelCapacity.getText();
         String capacity = txtWeightLimit.getText();
 
-        Vehicles vehicles = new Vehicles(Id,brand,fuelCapacity,capacity);
+        VehiclesDTO vehicles = new VehiclesDTO(Id,brand,fuelCapacity,capacity);
 
         boolean isAdded = VehiclesDAOImpl.save(vehicles);
 
@@ -35,7 +35,7 @@ public class VehiclesFormController {
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Vehicles vehicles= VehiclesDAOImpl.search(txtVehicleId.getText());
+        VehiclesDTO vehicles= VehiclesDAOImpl.search(txtVehicleId.getText());
         if(vehicles!=null) {
             txtBrand.setText(vehicles.getBrand());
             txtFuelCapacity.setText(vehicles.getFuelCapacity());
@@ -49,7 +49,7 @@ public class VehiclesFormController {
         String fuelCapacity = txtFuelCapacity.getText();
         String capacity = txtWeightLimit.getText();
 
-        Vehicles vehicles = new Vehicles(Id,brand,fuelCapacity,capacity);
+        VehiclesDTO vehicles = new VehiclesDTO(Id,brand,fuelCapacity,capacity);
 
         boolean isUpdate = VehiclesDAOImpl.update(vehicles);
 

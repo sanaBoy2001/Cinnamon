@@ -3,14 +3,14 @@ package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lk.ijse.RanasingheCinnamon.db.DBConnection;
-import lk.ijse.RanasingheCinnamon.to.PlaceOrder;
+import lk.ijse.RanasingheCinnamon.dto.PlaceOrderDTO;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PlaceOrderDAOImpl { //transaction (Updates orders,payment,customer tables)
-    public static boolean orderPlace(PlaceOrder placeOrder) throws SQLException, ClassNotFoundException {
+    public static boolean orderPlace(PlaceOrderDTO placeOrder) throws SQLException, ClassNotFoundException {
         try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean add = PlaceOrderDAOImpl.addCustomer(placeOrder);
@@ -37,7 +37,7 @@ public class PlaceOrderDAOImpl { //transaction (Updates orders,payment,customer 
         return false;
     }
 
-    public static boolean addCustomer(PlaceOrder placeOrder) throws SQLException, ClassNotFoundException {
+    public static boolean addCustomer(PlaceOrderDTO placeOrder) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("INSERT INTO customer VALUES (?,?,?,?)",
                 placeOrder.getCId(),
                 placeOrder.getName(),
@@ -56,23 +56,23 @@ public class PlaceOrderDAOImpl { //transaction (Updates orders,payment,customer 
         return count;
     }
 
-    public static ObservableList<PlaceOrder> searchAllCustomer() throws SQLException, ClassNotFoundException {
-        ObservableList<PlaceOrder> list = FXCollections.observableArrayList();
+    public static ObservableList<PlaceOrderDTO> searchAllCustomer() throws SQLException, ClassNotFoundException {
+        ObservableList<PlaceOrderDTO> list = FXCollections.observableArrayList();
         String sql = "SELECT * FROM customer";
         ResultSet result = CrudUtil.execute(sql);
         while (result.next()){
-            PlaceOrder customer = new PlaceOrder(result.getString(1), result.getString("name"), result.getString("address"), result.getString("contactNo"));
+            PlaceOrderDTO customer = new PlaceOrderDTO(result.getString(1), result.getString("name"), result.getString("address"), result.getString("contactNo"));
             list.add(customer);
         }
         return list;
     }
 
-    public static PlaceOrder searchCustomer(String ID) throws SQLException, ClassNotFoundException {
+    public static PlaceOrderDTO searchCustomer(String ID) throws SQLException, ClassNotFoundException {
         String sql = "SELECT * FROM customer WHERE cusId = '" +ID+ "'";
         ResultSet result = CrudUtil.execute(sql);
 
         if (result.next()) {
-            return new PlaceOrder(result.getString("cusId"), result.getString("name"), result.getString("address"), result.getString("contactNo"));
+            return new PlaceOrderDTO(result.getString("cusId"), result.getString("name"), result.getString("address"), result.getString("contactNo"));
         }
         return null;
     }

@@ -1,15 +1,21 @@
-package lk.ijse.RanasingheCinnamon.to;
+package lk.ijse.RanasingheCinnamon.entity;
 
 public class Employee {
 
-    private String id;
+    private String employeeId;
+
     private String role;
+
     private String name;
+
     private String nicNo;
+
     private String address;
+
     private String contactNo;
-    public Employee(String id, String role, String name, String nicNo, String address, String contactNo) {
-        this.id = id;
+
+    public Employee(String employeeId, String role, String name, String nicNo, String address, String contactNo) {
+        this.employeeId = employeeId;
         this.role = role;
         this.name = name;
         this.nicNo = nicNo;
@@ -17,12 +23,12 @@ public class Employee {
         this.contactNo = contactNo;
     }
 
-    public String getId() {
-        return id;
+    public String getEmployeeId() {
+        return employeeId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getRole() {

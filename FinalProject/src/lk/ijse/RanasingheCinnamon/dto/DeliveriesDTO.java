@@ -1,6 +1,6 @@
-package lk.ijse.RanasingheCinnamon.to;
+package lk.ijse.RanasingheCinnamon.dto;
 
-public class Deliveries {
+public class DeliveriesDTO {
     private String id;
     private String distance;
     private String route;
@@ -10,7 +10,7 @@ public class Deliveries {
     private String employeeId;
     private String vehicleId;
 
-    public Deliveries(String id, String orderId, String employeeId, String vehicleId, String distance, String route) {
+    public DeliveriesDTO(String id, String orderId, String employeeId, String vehicleId, String distance, String route) {
         this.id = id;
         this.orderId = orderId;
         this.employeeId = employeeId;

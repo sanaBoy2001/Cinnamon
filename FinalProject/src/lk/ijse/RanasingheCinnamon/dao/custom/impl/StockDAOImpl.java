@@ -1,6 +1,6 @@
 package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
-import lk.ijse.RanasingheCinnamon.to.Stocks;
+import lk.ijse.RanasingheCinnamon.dto.StocksDTO;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 
 import java.sql.ResultSet;
@@ -8,17 +8,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class StockDAOImpl {
-    public static boolean save(Stocks stocks) throws SQLException, ClassNotFoundException {
+    public static boolean save(StocksDTO stocks) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO stock VALUES (?,?,?,?)";
         return CrudUtil.execute(sql,stocks.getId(),stocks.getDate(),stocks.getCost(),stocks.getQuantity());
     }
 
-    public static Stocks search(String ID) throws SQLException, ClassNotFoundException {
+    public static StocksDTO search(String ID) throws SQLException, ClassNotFoundException {
         String sql = "SELECT * FROM stock WHERE stockId = '"+ID+"'";
         ResultSet result = CrudUtil.execute(sql);
 
         if(result.next()){
-            return new Stocks(result.getString("stockId"),result.getString("date"), result.getString("cost"),result.getString("quantity"));
+            return new StocksDTO(result.getString("stockId"),result.getString("date"), result.getString("cost"),result.getString("quantity"));
         }
         return null;
     }
@@ -28,7 +28,7 @@ public class StockDAOImpl {
         return CrudUtil.execute(sql);
     }
 
-    public static boolean update(Stocks stocks) throws SQLException, ClassNotFoundException {
+    public static boolean update(StocksDTO stocks) throws SQLException, ClassNotFoundException {
         String sql = "UPDATE stock SET date = ? , cost = ? , quantity = ? WHERE stockId = ?";
         return CrudUtil.execute(sql, stocks.getDate(), stocks.getCost(), stocks.getQuantity(), stocks.getId());
     }

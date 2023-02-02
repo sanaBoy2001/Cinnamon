@@ -1,6 +1,6 @@
-package lk.ijse.RanasingheCinnamon.to;
+package lk.ijse.RanasingheCinnamon.dto;
 
-public class PlaceOrder {
+public class PlaceOrderDTO {
     private String CId;
     private String Name;
     private String Address;
@@ -13,10 +13,10 @@ public class PlaceOrder {
 
     private Double total;
 
-    public PlaceOrder(String string, String name, String address, String contactNo) {
+    public PlaceOrderDTO(String string, String name, String address, String contactNo) {
     }
 
-    public PlaceOrder(String CId, String name, String address, String contact, String oId, String date, String details, String qty, Double total) {
+    public PlaceOrderDTO(String CId, String name, String address, String contact, String oId, String date, String details, String qty, Double total) {
         this.CId = CId;
         this.Name = name;
         this.Address = address;

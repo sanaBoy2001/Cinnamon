@@ -6,7 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.SupplierDAOImpl;
-import lk.ijse.RanasingheCinnamon.to.Supplier;
+import lk.ijse.RanasingheCinnamon.dto.SupplierDTO;
 
 import java.sql.SQLException;
 
@@ -28,12 +28,12 @@ public class SupplierFormController {
         String suppliedQty = txtQty.getText();
         Double cost = Double.valueOf(txtCost.getText());
 
-        Supplier supplier = new Supplier(Id,name,address,contactNo,suppliedQty,cost);
+        SupplierDTO supplier = new SupplierDTO(Id,name,address,contactNo,suppliedQty,cost);
 
         boolean isAdded = SupplierDAOImpl.save(supplier);
 
         if (isAdded) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Supplier Added").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "SupplierDTO Added").show();
         }
         else {
             new Alert(Alert.AlertType.CONFIRMATION,"Unsuccessful");
@@ -42,7 +42,7 @@ public class SupplierFormController {
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Supplier supplier= SupplierDAOImpl.search(txtSupplierId.getText());
+        SupplierDTO supplier= SupplierDAOImpl.search(txtSupplierId.getText());
         if(supplier!=null) {
             txtName.setText(supplier.getName());
             txtAddress.setText(supplier.getAddress());
@@ -61,7 +61,7 @@ public class SupplierFormController {
         Double cost = Double.valueOf(txtCost.getText());
 
 
-        Supplier supplier = new Supplier(Id,Name,Address,contactNo,suppliedQty,cost);
+        SupplierDTO supplier = new SupplierDTO(Id,Name,Address,contactNo,suppliedQty,cost);
 
         boolean isUpdate = SupplierDAOImpl.update(supplier);
 
@@ -77,7 +77,7 @@ public class SupplierFormController {
         boolean isDelete =  SupplierDAOImpl.delete(txtSupplierId.getText());
 
         if(isDelete){
-            new Alert(Alert.AlertType.CONFIRMATION,"Supplier Delete Successful").show();
+            new Alert(Alert.AlertType.CONFIRMATION,"SupplierDTO Delete Successful").show();
         }
         clearTxt();
     }

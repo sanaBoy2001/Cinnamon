@@ -10,7 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.ExportDAOImpl;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.StockDAOImpl;
-import lk.ijse.RanasingheCinnamon.to.Export;
+import lk.ijse.RanasingheCinnamon.dto.ExportDTO;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -31,7 +31,7 @@ public class ExportFormController implements Initializable {
 
         loadStockIds();
     }
-    private void loadStockIds(){ //stocks ids load to export
+    private void loadStockIds(){ //stocks ids load dto export
         try {
             ObservableList<String> observableList = FXCollections.observableArrayList();
             ArrayList<String> idList = StockDAOImpl.loadstockId();
@@ -52,7 +52,7 @@ public class ExportFormController implements Initializable {
         String country = txtCountry.getText();
         String status = txtStatus.getText();
 
-        Export export = new Export(Id,date,country,status);
+        ExportDTO export = new ExportDTO(Id,date,country,status);
 
         boolean isAdded = ExportDAOImpl.save(export);
 
@@ -67,7 +67,7 @@ public class ExportFormController implements Initializable {
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        Export export= ExportDAOImpl.search(txtExportId.getText());
+        ExportDTO export= ExportDAOImpl.search(txtExportId.getText());
         if(export!=null) {
             txtDate.setText(export.getDate());
             txtCountry.setText(export.getLocation());
@@ -90,7 +90,7 @@ public class ExportFormController implements Initializable {
         String country = txtCountry.getText();
         String status = txtStatus.getText();
 
-        Export export = new Export(Id,date,country,status);
+        ExportDTO export = new ExportDTO(Id,date,country,status);
 
         boolean isUpdate = ExportDAOImpl.update(export);
 

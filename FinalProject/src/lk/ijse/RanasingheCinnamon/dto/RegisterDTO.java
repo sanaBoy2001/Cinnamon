@@ -1,6 +1,6 @@
-package lk.ijse.RanasingheCinnamon.to;
+package lk.ijse.RanasingheCinnamon.dto;
 
-public class Register {
+public class RegisterDTO {
 
     private String UId;
     private String Uname;
@@ -10,7 +10,7 @@ public class Register {
     private String UserName;
     private String password;
 
-    public Register(String uId, String uname, String uemail, String uaddress, String utelNo, String userName, String password) {
+    public RegisterDTO(String uId, String uname, String uemail, String uaddress, String utelNo, String userName, String password) {
         this.UId = uId;
         this.Uname = uname;
         this.Uemail = uemail;

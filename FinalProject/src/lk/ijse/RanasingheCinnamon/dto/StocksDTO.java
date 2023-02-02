@@ -1,12 +1,12 @@
-package lk.ijse.RanasingheCinnamon.to;
+package lk.ijse.RanasingheCinnamon.dto;
 
-public class Stocks {
+public class StocksDTO {
     private String Id;
     private String date;
     private String cost;
     private String quantity;
 
-    public Stocks(String id, String date, String cost, String quantity) {
+    public StocksDTO(String id, String date, String cost, String quantity) {
         this.Id= id;
         this.date = date;
         this.cost = cost;
