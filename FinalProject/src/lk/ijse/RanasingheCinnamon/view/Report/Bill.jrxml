@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Bill" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="58ffe0b2-ce5f-424b-8865-db450521a387">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="585" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="40" uuid="57e91c6e-090c-4eb6-bd0b-ecb11b34c1ed"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ranasinghe Cinnamon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="555" height="30" uuid="7c1b2d45-6062-491a-a9d3-d4964d48b505"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Elpitiya Rd, Karandeniya]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="65" width="150" height="30" uuid="66ed3b64-c0aa-45b0-bd73-d852458f89c3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[USER : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="60" width="111" height="21" uuid="13d6665a-8b3e-46bd-b361-625bfd943c02"/>
+				<textElement textAlignment="Left">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Bill No : ]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="440" y="81" width="100" height="20" uuid="5de3521e-a019-427a-81eb-c80fbf0a218f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="140" width="555" height="1" uuid="b2eb914b-e02f-43e8-8736-4bc21208fd0d"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="109" width="80" height="30" uuid="4df32832-beaa-4dad-a77d-3d5c5accb1f5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Customer Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="109" width="80" height="30" uuid="05555d90-f0b8-48ed-8257-90181166768e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Order Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="109" width="40" height="30" uuid="c81fe0c9-6b7c-4a55-874b-4a70cd0afc03"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="107" width="80" height="30" uuid="77c1b5fb-b6eb-4678-ac11-e634c692bdea"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="107" width="80" height="30" uuid="bd739ddf-cef8-4b57-ad80-927e5c5b8e3d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="106" width="555" height="1" uuid="69ffd144-c959-499a-b9ed-b79549d459f2"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="376" width="555" height="1" uuid="0c36cda4-0394-4064-b783-86fc6740848d"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="410" width="555" height="1" uuid="9f10b130-88b9-4280-b038-5e313b15fcba"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="377" width="150" height="30" uuid="bcddb1a5-39ad-49cc-a33f-f54e0e62df06"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[NET TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="420" width="50" height="30" uuid="e44c6578-884a-45c7-ab9b-b95e157f8360"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Time : ]]></text>
+			</staticText>
+			<textField pattern="HH:mm">
+				<reportElement x="20" y="420" width="100" height="30" uuid="27ed45db-fc2b-48c6-b2fd-68e84c9d23b2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="370" y="420" width="70" height="30" uuid="1448a1d4-98f1-4fbd-80d4-cdc9b328092a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Cash     : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="440" width="70" height="30" uuid="5c7a2e97-bd98-4449-9d3a-9ee210df5afa"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Change : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="480" width="100" height="30" uuid="41592829-7172-4363-b653-bbcec75a5d3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[THANK YOU]]></text>
+			</staticText>
+			<line>
+				<reportElement x="328" y="495" width="226" height="1" uuid="c748859c-897d-467f-ad6f-0f62a0c3f54b"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="495" width="226" height="1" uuid="e33f2355-2bb0-4492-8c6a-a8bf4b13f6c5"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="227" y="500" width="100" height="30" uuid="c3b24a15-d268-43ee-b1f1-d620b78dff45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Come Again]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="540" width="200" height="30" uuid="e370b7cf-6262-4950-963a-2961a7535c26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Software by Sana_Boy 0767888144]]></text>
+			</staticText>
+			<line>
+				<reportElement x="381" y="555" width="173" height="1" uuid="c798d2ee-985b-45d5-a2e5-37c43abc6502"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="7" y="555" width="173" height="1" uuid="daa44b8f-eea5-442b-bdd3-feb0acf51f9f"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+</jasperReport>

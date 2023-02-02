@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="612.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.RanasingheCinnamon.controller.LoginFormController">
+   <children>
+      <AnchorPane prefHeight="830.0" prefWidth="1301.0">
+         <children>
+            <Label layoutX="537.0" layoutY="14.0" text="..WELCOME.." textFill="#d96a6a">
+               <font>
+                  <Font name="System Bold" size="37.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="-240.0" layoutY="143.0" prefHeight="649.0" prefWidth="495.0" rotate="-39.0" style="-fx-background-color: linear-gradient(to right top, #34495e,#2c3e50,#7f8c8d); -fx-border-color: black; -fx-border-width: 10;" />
+            <ImageView fitHeight="250.0" fitWidth="331.0" layoutX="213.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/logo/CinnamON_LOGO_last.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="811.0" layoutY="134.0" text="User Login">
+               <font>
+                  <Font name="Dubai Bold" size="33.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtUserName" layoutX="756.0" layoutY="215.0" prefHeight="31.0" prefWidth="261.0" promptText="User Name" />
+            <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="703.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/logo/icons8-user-30.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="703.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/logo/icons8-lock-30.png" />
+               </image>
+            </ImageView>
+            <JFXPasswordField fx:id="txtPassword" layoutX="756.0" layoutY="277.0" prefHeight="31.0" prefWidth="261.0" promptText="Password" />
+            <JFXTextField fx:id="txtpwshow1" layoutX="756.0" layoutY="277.0" prefHeight="31.0" prefWidth="261.0" />
+            <JFXCheckBox fx:id="cbxShow" layoutX="886.0" layoutY="332.0" onAction="#showPasswordOnAction" text="Show password" />
+            <JFXButton layoutX="811.0" layoutY="452.0" onAction="#btnForgotPasswordOnAction" prefHeight="31.0" prefWidth="153.0" text="Forgot Password?" />
+            <JFXButton layoutX="898.0" layoutY="532.0" onAction="#btnRegisterOnAction" prefHeight="41.0" prefWidth="175.0" text="Register New User---&gt;" />
+            <Button layoutX="756.0" layoutY="384.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="41.0" prefWidth="261.0" style="-fx-background-color: linear-gradient(to right top, #34495e,#2c3e50,#7f8c8d);" text="Login" textFill="#eeeaea">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

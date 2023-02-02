@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="612.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.RanasingheCinnamon.controller.RegisterFormController">
+   <children>
+      <AnchorPane prefHeight="830.0" prefWidth="1301.0">
+         <children>
+            <AnchorPane layoutY="2.0" prefHeight="78.0" prefWidth="1301.0" style="-fx-background-color: linear-gradient(to right top, #34495e,#2c3e50,#7f8c8d);">
+               <children>
+                  <Label layoutX="436.0" layoutY="12.0" text="..Ranasinghe Cinnamon.." textFill="#d96a6a">
+                     <font>
+                        <Font name="System Bold" size="37.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="-228.0" layoutY="161.0" prefHeight="650.0" prefWidth="485.0" rotate="-39.0" style="-fx-background-color: linear-gradient(to right top, #34495e,#2c3e50,#7f8c8d); -fx-border-color: #2ecc71; -fx-border-width: 10;" />
+            <ImageView fitHeight="155.0" fitWidth="277.0" layoutX="207.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/logo/CinnamON_LOGO_last.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="795.0" layoutY="154.0" text="Register New User">
+               <font>
+                  <Font name="Dubai Bold" size="31.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="788.0" layoutY="622.0" onAction="#btnRegisterOnAction" prefHeight="31.0" prefWidth="261.0" style="-fx-background-color: linear-gradient(to right top, #34495e,#2c3e50,#7f8c8d); -fx-background-radius: 50;" text="Register" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow spread="0.12" />
+               </effect>
+            </JFXButton>
+            <JFXButton layoutX="1189.0" layoutY="761.0" onAction="#btnBackOnAction" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: lightblue;" text="Back">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Label layoutX="686.0" layoutY="387.0" text="Address:">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="698.0" layoutY="438.0" text="Tel No:">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtAddress" layoutX="795.0" layoutY="385.0" prefHeight="31.0" prefWidth="252.0" />
+            <TextField fx:id="txtTelNo" layoutX="795.0" layoutY="436.0" prefHeight="31.0" prefWidth="252.0" />
+            <Label layoutX="686.0" layoutY="339.0" text="Email:">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtEmail" layoutX="795.0" layoutY="337.0" prefHeight="31.0" prefWidth="252.0" />
+            <Label layoutX="686.0" layoutY="291.0" text="Name:">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtName" layoutX="795.0" layoutY="289.0" prefHeight="31.0" prefWidth="252.0" />
+            <Label layoutX="686.0" layoutY="246.0" text="User Id:">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUserId" layoutX="795.0" layoutY="244.0" prefHeight="31.0" prefWidth="252.0" />
+            <Label layoutX="664.0" layoutY="489.0" text="User Name:">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUserName" layoutX="795.0" layoutY="486.0" prefHeight="31.0" prefWidth="252.0" />
+            <Label layoutX="676.0" layoutY="539.0" text="Password:">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtPassword" layoutX="795.0" layoutY="536.0" prefHeight="31.0" prefWidth="252.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

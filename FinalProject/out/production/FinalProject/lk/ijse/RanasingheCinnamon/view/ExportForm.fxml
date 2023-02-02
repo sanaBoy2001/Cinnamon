@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.RanasingheCinnamon.controller.ExportFormController">
+   <children>
+      <AnchorPane fx:id="contax" layoutX="4.0" layoutY="4.0" prefHeight="782.0" prefWidth="1037.0">
+         <children>
+            <AnchorPane layoutX="382.0" prefHeight="53.0" prefWidth="244.0" style="-fx-background-color: #3498db;" />
+            <Label layoutX="393.0" text="Manage Exports">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtExportId" labelFloat="true" layoutX="301.0" layoutY="110.0" prefHeight="31.0" prefWidth="259.0" promptText="Employee Id">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXTextField>
+            <JFXTextField fx:id="txtDate" labelFloat="true" layoutX="301.0" layoutY="174.0" prefHeight="31.0" prefWidth="259.0" promptText="Date">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXTextField>
+            <JFXButton layoutX="655.0" layoutY="110.0" onAction="#btnAddOnAction" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #34495e;" text="Add" textFill="#f2ecec">
+               <font>
+                  <Font name="Georgia Bold" size="21.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton layoutX="807.0" layoutY="198.0" onAction="#btnSearchOnAction" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #34495e;" text="Search" textFill="#f2ecec">
+               <font>
+                  <Font name="Georgia Bold" size="21.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton layoutX="655.0" layoutY="198.0" onAction="#btnDeleteOnAction" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #34495e;" text="Delete" textFill="#f2ecec">
+               <font>
+                  <Font name="Georgia Bold" size="21.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton layoutX="807.0" layoutY="110.0" onAction="#btnUpdateOnAction" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #34495e;" text="Update" textFill="#f2ecec">
+               <font>
+                  <Font name="Georgia Bold" size="21.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <TableView fx:id="tblManageExports" layoutX="2.0" layoutY="374.0" prefHeight="398.0" prefWidth="1030.0" style="-fx-background-color: #bdc3c7;">
+               <columns>
+                  <TableColumn prefWidth="150.0" text="Stock Id" />
+                  <TableColumn minWidth="0.0" prefWidth="167.0" text="Order Id" />
+                  <TableColumn minWidth="0.0" prefWidth="176.0" text="Export Id" />
+                  <TableColumn minWidth="0.0" prefWidth="164.0" text="Date" />
+                  <TableColumn minWidth="0.0" prefWidth="181.0" text="Country" />
+                  <TableColumn minWidth="0.0" prefWidth="188.0" text="Status" />
+               </columns>
+            </TableView>
+            <ComboBox fx:id="cmbStockId" layoutX="14.0" layoutY="110.0" prefHeight="43.0" prefWidth="252.0" promptText="Stock Id" />
+            <ComboBox fx:id="cmbOrderId" layoutX="14.0" layoutY="184.0" prefHeight="43.0" prefWidth="252.0" promptText="Order Id" />
+            <JFXTextField fx:id="txtCountry" labelFloat="true" layoutX="301.0" layoutY="241.0" prefHeight="31.0" prefWidth="259.0" promptText="Country">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXTextField>
+            <JFXTextField fx:id="txtStatus" labelFloat="true" layoutX="301.0" layoutY="307.0" prefHeight="31.0" prefWidth="259.0" promptText="Status">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.RanasingheCinnamon.controller.VehiclesFormController">
+   <children>
+      <AnchorPane fx:id="contax" layoutX="5.0" layoutY="5.0" prefHeight="782.0" prefWidth="1037.0">
+         <children>
+            <AnchorPane layoutX="374.0" layoutY="1.0" prefHeight="57.0" prefWidth="268.0" style="-fx-background-color: #3498db;" />
+            <Label layoutX="393.0" layoutY="8.0" text="Manage Vehicles">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtVehicleId" layoutX="115.0" layoutY="155.0" prefHeight="31.0" prefWidth="259.0" promptText="Vehicle Id" />
+            <JFXTextField fx:id="txtBrand" layoutX="115.0" layoutY="223.0" prefHeight="31.0" prefWidth="259.0" promptText="Brand" />
+            <JFXTextField fx:id="txtFuelCapacity" layoutX="115.0" layoutY="300.0" prefHeight="31.0" prefWidth="259.0" promptText="Fuel Capacity" />
+            <JFXTextField fx:id="txtWeightLimit" layoutX="115.0" layoutY="368.0" prefHeight="31.0" prefWidth="259.0" promptText="Weight Limit" />
+            <JFXButton layoutX="543.0" layoutY="288.0" onAction="#btnAddOnAction" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #34495e;" text="Add" textFill="#f2ecec">
+               <font>
+                  <Font name="Georgia Bold" size="21.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="734.0" layoutY="377.0" onAction="#btnSearchOnAction" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #34495e;" text="Search" textFill="#f2ecec">
+               <font>
+                  <Font name="Georgia Bold" size="21.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="543.0" layoutY="377.0" onAction="#btnDeleteOnAction" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #34495e;" text="Delete" textFill="#f2ecec">
+               <font>
+                  <Font name="Georgia Bold" size="21.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="734.0" layoutY="288.0" onAction="#btnUpdateOnAction" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #34495e;" text="Update" textFill="#f2ecec">
+               <font>
+                  <Font name="Georgia Bold" size="21.0" />
+               </font>
+            </JFXButton>
+            <TableView fx:id="tblAddOrders" layoutX="1.0" layoutY="447.0" prefHeight="331.0" prefWidth="1030.0" style="-fx-background-color: #bdc3c7;">
+               <columns>
+                  <TableColumn minWidth="0.0" prefWidth="146.0" text="Vehicle Id" />
+                  <TableColumn minWidth="0.0" prefWidth="149.0" text="Brand" />
+                  <TableColumn minWidth="0.0" prefWidth="273.0" text="Fuel Capacity" />
+                  <TableColumn minWidth="0.0" prefWidth="169.0" text="Weight Limit" />
+                  <TableColumn minWidth="0.0" prefWidth="153.0" text="Status" />
+               </columns>
+            </TableView>
+            <Label layoutX="519.0" layoutY="168.0" text="Vehicle Status:" />
+            <JFXCheckBox layoutX="633.0" layoutY="168.0" text="Availiable" />
+            <JFXCheckBox layoutX="737.0" layoutY="168.0" text="Not Availiable" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
