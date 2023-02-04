@@ -8,6 +8,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
+import lk.ijse.RanasingheCinnamon.bo.BOFactory;
+import lk.ijse.RanasingheCinnamon.bo.SuperBO;
+import lk.ijse.RanasingheCinnamon.bo.custom.EmployeeBO;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.ExportDAOImpl;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.StockDAOImpl;
 import lk.ijse.RanasingheCinnamon.dto.ExportDTO;
@@ -54,7 +57,8 @@ public class ExportFormController implements Initializable {
 
         ExportDTO export = new ExportDTO(Id,date,country,status);
 
-        boolean isAdded = ExportDAOImpl.save(export);
+//        boolean isAdded = ExportDAOImpl.save(export);
+        Export bo = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.EXPORT);
 
         if (isAdded) {
             new Alert(Alert.AlertType.CONFIRMATION, "Added").show();

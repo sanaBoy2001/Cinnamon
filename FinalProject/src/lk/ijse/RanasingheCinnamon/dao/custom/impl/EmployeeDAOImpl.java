@@ -39,7 +39,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     @Override
     public boolean update(Employee employee) throws SQLException, ClassNotFoundException {
         String sql = "UPDATE employee SET role = ? , name = ? , nicNo = ? , address = ? ,contactNo = ? WHERE employeeId = ?";
-        return CrudUtil.execute(sql, employee.getRole(), employee.getName(),employee.getNicNo(),employee.getAddress(),employee.getContactNo(),employee.getEmployeeId();
+        return CrudUtil.execute(sql, employee.getRole(), employee.getName(),employee.getNicNo(),employee.getAddress(),employee.getContactNo(),employee.getEmployeeId());
 
 
     }
@@ -81,7 +81,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     }*/
 
-    public static ObservableList<EmployeeDTO> searchAllEmployee() throws SQLException, ClassNotFoundException {
+    @Override
+    public ObservableList<EmployeeDTO> searchAllEmployee() throws SQLException, ClassNotFoundException {
 
         ObservableList<EmployeeDTO> list = FXCollections.observableArrayList();
         String sql = "SELECT * FROM employee";

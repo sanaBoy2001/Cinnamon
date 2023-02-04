@@ -27,8 +27,8 @@ public class BOFactory {
         switch (types){
             case DELIVERIES:
                 return new DeliveriesBOImpl();
-            //case EMPLOYEE:
-               // return new EmployeeBOImpl();
+            case EMPLOYEE:
+               return new EmployeeBOImpl();
 
             default:
             return null;
