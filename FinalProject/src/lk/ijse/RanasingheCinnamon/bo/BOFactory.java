@@ -1,7 +1,7 @@
 package lk.ijse.RanasingheCinnamon.bo;
 
-import lk.ijse.RanasingheCinnamon.bo.custom.DeliveriesBO;
 import lk.ijse.RanasingheCinnamon.bo.custom.impl.DeliveriesBOImpl;
+import lk.ijse.RanasingheCinnamon.bo.custom.impl.EmployeeBOImpl;
 
 public class BOFactory {
 
@@ -27,7 +27,12 @@ public class BOFactory {
         switch (types){
             case DELIVERIES:
                 return new DeliveriesBOImpl();
+            //case EMPLOYEE:
+               // return new EmployeeBOImpl();
+
+            default:
+            return null;
+
         }
-        return null;
     }
 }

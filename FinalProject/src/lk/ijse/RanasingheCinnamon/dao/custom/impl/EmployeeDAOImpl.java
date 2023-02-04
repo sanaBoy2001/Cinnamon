@@ -29,14 +29,15 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public void delete(String Id) throws SQLException, ClassNotFoundException {
+    public boolean delete(String Id) throws SQLException, ClassNotFoundException {
         String sql = "DELETE FROM employee WHERE employeeId = '"+Id+"'";
         CrudUtil.execute(sql);
 
+        return false;
     }
 
     @Override
-    public void update(Employee employee) throws SQLException, ClassNotFoundException {
+    public boolean update(Employee employee) throws SQLException, ClassNotFoundException {
         String sql = "UPDATE employee SET role = ? , name = ? , nicNo = ? , address = ? ,contactNo = ? WHERE employeeId = ?";
         return CrudUtil.execute(sql, employee.getRole(), employee.getName(),employee.getNicNo(),employee.getAddress(),employee.getContactNo(),employee.getEmployeeId();
 

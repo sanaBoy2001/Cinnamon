@@ -1,11 +1,8 @@
 package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
 import lk.ijse.RanasingheCinnamon.dao.custom.ExportDAO;
-import lk.ijse.RanasingheCinnamon.dto.ExportDTO;
 import lk.ijse.RanasingheCinnamon.entity.Export;
-import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ExportDAOImpl implements ExportDAO {
@@ -22,13 +19,15 @@ public class ExportDAOImpl implements ExportDAO {
     }
 
     @Override
-    public void delete(String Id) throws SQLException, ClassNotFoundException {
+    public boolean delete(String Id) throws SQLException, ClassNotFoundException {
 
+        return false;
     }
 
     @Override
-    public void update(Export deliveries) throws SQLException, ClassNotFoundException {
+    public boolean update(Export deliveries) throws SQLException, ClassNotFoundException {
 
+        return false;
     }
     /*public static boolean save(ExportDTO export) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO export VALUES = (?,?,?,?)";
