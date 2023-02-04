@@ -1,6 +1,6 @@
 package lk.ijse.RanasingheCinnamon.entity;
 
-public class transport {
+public class Transport {
     private String transportId;
     private String orderId;
     private String employeeId;
@@ -8,7 +8,7 @@ public class transport {
     private String distance;
     private String route;
 
-    public transport(String transportId, String orderId, String employeeId, String vehicleId, String distance, String route) {
+    public Transport(String transportId, String orderId, String employeeId, String vehicleId, String distance, String route) {
         this.transportId = transportId;
         this.orderId = orderId;
         this.employeeId = employeeId;
