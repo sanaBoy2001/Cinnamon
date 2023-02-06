@@ -30,8 +30,8 @@ public class EmployeeBOImpl implements EmployeeBO {
     }
 
     @Override
-    public boolean updateEmployee(Employee employee) throws SQLException, ClassNotFoundException {
-        return employeeDAO.update(new Employee(employee.getEmployeeId(),employee.getRole(),employee.getName(),employee.getNicNo(),employee.getAddress(),employee.getContactNo()));
+    public boolean updateEmployee(EmployeeDTO employeeDTO) throws SQLException, ClassNotFoundException {
+        return employeeDAO.update(new Employee(employeeDTO.getId(),employeeDTO.getRole(),employeeDTO.getName(),employeeDTO.getNicNo(),employeeDTO.getAddress(),employeeDTO.getContactNo()));
     }
 
     @Override

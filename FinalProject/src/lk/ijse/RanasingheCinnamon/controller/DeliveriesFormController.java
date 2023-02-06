@@ -145,7 +145,7 @@ public class DeliveriesFormController implements Initializable {
 
         //boolean isUpdate = DeliveriesDAOImpl.update(deliveries);
 
-        boolean isUpdate = deliveriesBO.updateDeliver(new Transport(Id, orderId, employeeId, vehicleId, distance, route));
+        boolean isUpdate = deliveriesBO.updateDeliver(new DeliveriesDTO(Id, orderId, employeeId, vehicleId, distance, route));
 
         if(isUpdate){
             new Alert(Alert.AlertType.CONFIRMATION,"Details Updated").show();

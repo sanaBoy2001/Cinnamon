@@ -14,7 +14,7 @@ public interface DeliveriesBO extends SuperBO {
 
     boolean deleteDeliver(String Id) throws SQLException, ClassNotFoundException;
 
-    boolean updateDeliver(Transport deliveries) throws SQLException, ClassNotFoundException;
+    boolean updateDeliver(DeliveriesDTO deliveriesDTO) throws SQLException, ClassNotFoundException;
 
     ArrayList<String> loadEmployeeId() throws SQLException, ClassNotFoundException;
 

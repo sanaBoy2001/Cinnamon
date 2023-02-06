@@ -10,10 +10,14 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import lk.ijse.RanasingheCinnamon.bo.BOFactory;
 import lk.ijse.RanasingheCinnamon.bo.SuperBO;
+import lk.ijse.RanasingheCinnamon.bo.custom.DeliveriesBO;
 import lk.ijse.RanasingheCinnamon.bo.custom.EmployeeBO;
+import lk.ijse.RanasingheCinnamon.bo.custom.ExportBO;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.ExportDAOImpl;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.StockDAOImpl;
+import lk.ijse.RanasingheCinnamon.dto.DeliveriesDTO;
 import lk.ijse.RanasingheCinnamon.dto.ExportDTO;
+import lk.ijse.RanasingheCinnamon.entity.Export;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -30,6 +34,8 @@ public class ExportFormController implements Initializable {
     public JFXTextField txtCountry;
     public JFXTextField txtStatus;
 
+    private final ExportBO exportBO = (ExportBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.EXPORT);
+
     public void initialize(URL location, ResourceBundle resources) {
 
         loadStockIds();
@@ -37,7 +43,8 @@ public class ExportFormController implements Initializable {
     private void loadStockIds(){ //stocks ids load dto export
         try {
             ObservableList<String> observableList = FXCollections.observableArrayList();
-            ArrayList<String> idList = StockDAOImpl.loadstockId();
+            //ArrayList<String> idList = StockDAOImpl.loadstockId();
+            ArrayList<String> idList = exportBO.loadStockIds();
 
             for(String id : idList){
                 observableList.add(id);
@@ -55,10 +62,10 @@ public class ExportFormController implements Initializable {
         String country = txtCountry.getText();
         String status = txtStatus.getText();
 
-        ExportDTO export = new ExportDTO(Id,date,country,status);
+        //ExportDTO export = new ExportDTO(Id,date,country,status);
 
 //        boolean isAdded = ExportDAOImpl.save(export);
-        Export bo = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.EXPORT);
+        boolean isAdded = exportBO.saveExport(new ExportDTO(Id,date, country, status));
 
         if (isAdded) {
             new Alert(Alert.AlertType.CONFIRMATION, "Added").show();
@@ -71,7 +78,10 @@ public class ExportFormController implements Initializable {
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        ExportDTO export= ExportDAOImpl.search(txtExportId.getText());
+        //ExportDTO export= ExportDAOImpl.search(txtExportId.getText());
+        
+        ExportDTO export = exportBO.searchExport(txtExportId.getText());
+                
         if(export!=null) {
             txtDate.setText(export.getDate());
             txtCountry.setText(export.getLocation());
@@ -80,7 +90,9 @@ public class ExportFormController implements Initializable {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        boolean isDelete =  ExportDAOImpl.delete(txtExportId.getText());
+        //boolean isDelete =  ExportDAOImpl.delete(txtExportId.getText());
+
+        boolean isDelete = exportBO.deleteExport(txtExportId.getText());
 
         if(isDelete){
             new Alert(Alert.AlertType.CONFIRMATION,"Delete Successful").show();
@@ -94,9 +106,11 @@ public class ExportFormController implements Initializable {
         String country = txtCountry.getText();
         String status = txtStatus.getText();
 
-        ExportDTO export = new ExportDTO(Id,date,country,status);
+        //ExportDTO export = new ExportDTO(Id,date,country,status);
 
-        boolean isUpdate = ExportDAOImpl.update(export);
+        //boolean isUpdate = ExportDAOImpl.update(export);
+
+        boolean isUpdate = exportBO.updateExport(new ExportDTO(Id, date, country, status));
 
         if(isUpdate){
             new Alert(Alert.AlertType.CONFIRMATION,"Details Updated").show();

@@ -4,6 +4,7 @@ import lk.ijse.RanasingheCinnamon.dao.custom.ExportDAO;
 import lk.ijse.RanasingheCinnamon.entity.Export;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ExportDAOImpl implements ExportDAO {
     @Override
@@ -28,6 +29,11 @@ public class ExportDAOImpl implements ExportDAO {
     public boolean update(Export deliveries) throws SQLException, ClassNotFoundException {
 
         return false;
+    }
+
+    @Override
+    public ArrayList<String> loadStockIds() throws SQLException, ClassNotFoundException {
+        return null;
     }
     /*public static boolean save(ExportDTO export) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO export VALUES = (?,?,?,?)";

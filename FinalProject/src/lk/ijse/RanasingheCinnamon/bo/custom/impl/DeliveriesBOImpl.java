@@ -38,8 +38,8 @@ public class DeliveriesBOImpl implements DeliveriesBO {
     }
 
     @Override
-    public boolean updateDeliver(Transport deliveries) throws SQLException, ClassNotFoundException {
-        return deliveriesDAO.update(new Transport(deliveries.getTransportId(),deliveries.getOrderId(),deliveries.getEmployeeId(),deliveries.getVehicleId(),deliveries.getDistance(),deliveries.getRoute()));
+    public boolean updateDeliver(DeliveriesDTO deliveriesDTO) throws SQLException, ClassNotFoundException {
+        return deliveriesDAO.update(new Transport(deliveriesDTO.getId(),deliveriesDTO.getOrderId(),deliveriesDTO.getEmployeeId(),deliveriesDTO.getVehicleId(),deliveriesDTO.getDistance(),deliveriesDTO.getRoute()));
     }
 
     @Override

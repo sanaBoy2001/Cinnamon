@@ -87,7 +87,8 @@ public class ManageEmployeeFormController implements Initializable {
 //            EmployeeDTO employee = new EmployeeDTO(Id,role,name,nicNo,address,contactNo);
 
 //            boolean isUpdate = EmployeeDAOImpl.update(employee);
-            boolean isUpdate = employeeBO.updateEmployee(new Employee(Id, role, name, nicNo, address, contactNo));
+            boolean isUpdate = employeeBO.updateEmployee(new EmployeeDTO(Id, role, name, nicNo, address, contactNo));
+
             if(isUpdate){
                 new Alert(Alert.AlertType.CONFIRMATION,"Details Updated").show();
             }else {
