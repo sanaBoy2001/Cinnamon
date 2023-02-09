@@ -1,9 +1,6 @@
 package lk.ijse.RanasingheCinnamon.dao;
 
-import lk.ijse.RanasingheCinnamon.dao.custom.impl.DeliveriesDAOImpl;
-import lk.ijse.RanasingheCinnamon.dao.custom.impl.EmployeeDAOImpl;
-import lk.ijse.RanasingheCinnamon.dao.custom.impl.ExportDAOImpl;
-import lk.ijse.RanasingheCinnamon.dao.custom.impl.OrderDetailDAOImpl;
+import lk.ijse.RanasingheCinnamon.dao.custom.impl.*;
 
 public class DAOFactory {
 
@@ -34,6 +31,8 @@ public class DAOFactory {
                 return new ExportDAOImpl();
             case ORDERDETAIL:
                 return new OrderDetailDAOImpl();
+            case PLACEORDER:
+                return new PlaceOrderDAOImpl();
 
             default:
                 return null;

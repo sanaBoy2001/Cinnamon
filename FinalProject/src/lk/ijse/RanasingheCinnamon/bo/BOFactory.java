@@ -1,9 +1,6 @@
 package lk.ijse.RanasingheCinnamon.bo;
 
-import lk.ijse.RanasingheCinnamon.bo.custom.impl.DeliveriesBOImpl;
-import lk.ijse.RanasingheCinnamon.bo.custom.impl.EmployeeBOImpl;
-import lk.ijse.RanasingheCinnamon.bo.custom.impl.ExportBOImpl;
-import lk.ijse.RanasingheCinnamon.bo.custom.impl.PlaceOrderBOImpl;
+import lk.ijse.RanasingheCinnamon.bo.custom.impl.*;
 
 public class BOFactory {
 
@@ -22,7 +19,7 @@ public class BOFactory {
 
     public enum BOTypes{
 
-        DELIVERIES,EMPLOYEE,EXPORT,ORDERDETAIL,ORDERS,PAYMENTS,PLACEORDER,REGISTER,STOCK,SUPPLIER,VEHICLES
+        DELIVERIES,EMPLOYEE,EXPORT,ORDERDETAIL,ORDERS,PAYMENTS,PLACEORDER,REGISTER,STOCK,SUPPLIER,VEHICLES,ADMINDASHBOARD
     }
 
     public SuperBO getBO(BOTypes types){
@@ -35,6 +32,8 @@ public class BOFactory {
                 return new ExportBOImpl();
             case ORDERDETAIL:
                 return new PlaceOrderBOImpl();
+            case ADMINDASHBOARD:
+                return new AdminDashBoardBOImpl();
 
             default:
             return null;

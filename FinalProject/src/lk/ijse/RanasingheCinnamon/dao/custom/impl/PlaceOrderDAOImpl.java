@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import lk.ijse.RanasingheCinnamon.dao.DAOFactory;
 import lk.ijse.RanasingheCinnamon.dao.SuperDAO;
 import lk.ijse.RanasingheCinnamon.dao.custom.OrderDetailDAO;
+import lk.ijse.RanasingheCinnamon.dao.custom.PlaceOrderDAO;
 import lk.ijse.RanasingheCinnamon.db.DBConnection;
 import lk.ijse.RanasingheCinnamon.dto.PlaceOrderDTO;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
@@ -12,7 +13,7 @@ import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PlaceOrderDAOImpl { //transaction (Updates orders,payment,customer tables)
+public class PlaceOrderDAOImpl implements PlaceOrderDAO{ //transaction (Updates orders,payment,customer tables)
 
    /* OrderDetailDAO orderDetailDAO = (OrderDetailDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ORDERDETAIL);*/
     /*public boolean orderPlace(PlaceOrderDTO placeOrder) throws SQLException, ClassNotFoundException {
@@ -43,7 +44,7 @@ public class PlaceOrderDAOImpl { //transaction (Updates orders,payment,customer 
         return false;
     }*/
 
-    public static boolean addCustomer(PlaceOrderDTO placeOrder) throws SQLException, ClassNotFoundException {
+    public boolean addCustomer(PlaceOrderDTO placeOrder) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("INSERT INTO customer VALUES (?,?,?,?)",
                 placeOrder.getCId(),
                 placeOrder.getName(),
@@ -52,7 +53,7 @@ public class PlaceOrderDAOImpl { //transaction (Updates orders,payment,customer 
                 );
     }
 
-    public static int customerCount() throws SQLException, ClassNotFoundException {
+    public int customerCount() throws SQLException, ClassNotFoundException {
         String sql = "SELECT COUNT(*) FROM customer";
         ResultSet execute = CrudUtil.execute(sql);
         int count = 0;

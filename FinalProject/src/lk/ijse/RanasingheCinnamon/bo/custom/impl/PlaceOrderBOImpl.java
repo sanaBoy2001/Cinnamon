@@ -2,7 +2,9 @@ package lk.ijse.RanasingheCinnamon.bo.custom.impl;
 
 import lk.ijse.RanasingheCinnamon.bo.custom.PlaceOrderBO;
 import lk.ijse.RanasingheCinnamon.dao.DAOFactory;
+import lk.ijse.RanasingheCinnamon.dao.SuperDAO;
 import lk.ijse.RanasingheCinnamon.dao.custom.OrderDetailDAO;
+import lk.ijse.RanasingheCinnamon.dao.custom.PlaceOrderDAO;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.OrdersDAOImpl;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.PaymentsDAOImpl;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.PlaceOrderDAOImpl;
@@ -12,11 +14,14 @@ import lk.ijse.RanasingheCinnamon.dto.PlaceOrderDTO;
 import java.sql.SQLException;
 
 public class PlaceOrderBOImpl implements PlaceOrderBO {
+
+    PlaceOrderDAO placeOrderDAO = (PlaceOrderDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PLACEORDER);
     OrderDetailDAO orderDetailDAO = (OrderDetailDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ORDERDETAIL);
     public boolean orderPlace(PlaceOrderDTO placeOrder) throws SQLException, ClassNotFoundException {
         try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
-            boolean add = PlaceOrderDAOImpl.addCustomer(placeOrder);
+            //boolean add = PlaceOrderDAOImpl.addCustomer(placeOrder);
+            boolean add = placeOrderDAO.addCustomer(placeOrder);
             if (add) {
                 boolean isadd = OrdersDAOImpl.addOrder(placeOrder);
                 if (isadd) {

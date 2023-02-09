@@ -6,6 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import lk.ijse.RanasingheCinnamon.bo.BOFactory;
+import lk.ijse.RanasingheCinnamon.bo.SuperBO;
+import lk.ijse.RanasingheCinnamon.bo.custom.AdminDashBoardBO;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.EmployeeDAOImpl;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.PlaceOrderDAOImpl;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.SupplierDAOImpl;
@@ -32,6 +35,8 @@ public class AdminDashBoardFormController{
     public JFXButton btnSupCount;
     public JFXButton btnVehicleCount;
 
+    AdminDashBoardBO adminDashBoardBO = (AdminDashBoardBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ADMINDASHBOARD);
+
     public void initialize(){
         setTime();
         setDate();
@@ -49,7 +54,8 @@ public class AdminDashBoardFormController{
 
     public void loadcustomerCount(){
         try {
-            int count = PlaceOrderDAOImpl.customerCount();
+//            int count = PlaceOrderDAOImpl.customerCount();
+            int count = adminDashBoardBO.allCustomers();
             btnCusCount.setText(String.valueOf(count));
         }catch (Exception exception){
             System.out.println(exception);
