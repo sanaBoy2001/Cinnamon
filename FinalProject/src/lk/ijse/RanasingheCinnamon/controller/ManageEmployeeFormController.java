@@ -66,7 +66,9 @@ public class ManageEmployeeFormController implements Initializable {
     public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         
 //        EmployeeDTO employee = EmployeeDAOImpl.searchEmployee(txtEmployeeId.getText());
+
         EmployeeDTO employee = employeeBO.searchEmployee(txtEmployeeId.getText());
+
         if (employee != null) {
             txtRole.setText(employee.getRole());
             txtName.setText(employee.getName());

@@ -2,6 +2,8 @@ package lk.ijse.RanasingheCinnamon.bo;
 
 import lk.ijse.RanasingheCinnamon.bo.custom.impl.DeliveriesBOImpl;
 import lk.ijse.RanasingheCinnamon.bo.custom.impl.EmployeeBOImpl;
+import lk.ijse.RanasingheCinnamon.bo.custom.impl.ExportBOImpl;
+import lk.ijse.RanasingheCinnamon.bo.custom.impl.PlaceOrderBOImpl;
 
 public class BOFactory {
 
@@ -29,6 +31,10 @@ public class BOFactory {
                 return new DeliveriesBOImpl();
             case EMPLOYEE:
                return new EmployeeBOImpl();
+            case EXPORT:
+                return new ExportBOImpl();
+            case ORDERDETAIL:
+                return new PlaceOrderBOImpl();
 
             default:
             return null;

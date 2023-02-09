@@ -8,7 +8,6 @@ import lk.ijse.RanasingheCinnamon.dto.EmployeeDTO;
 import lk.ijse.RanasingheCinnamon.entity.Employee;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class EmployeeBOImpl implements EmployeeBO {
 

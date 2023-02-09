@@ -11,6 +11,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import lk.ijse.RanasingheCinnamon.bo.BOFactory;
+import lk.ijse.RanasingheCinnamon.bo.SuperBO;
+import lk.ijse.RanasingheCinnamon.bo.custom.PlaceOrderBO;
 import lk.ijse.RanasingheCinnamon.dao.custom.impl.PlaceOrderDAOImpl;
 import lk.ijse.RanasingheCinnamon.dto.PlaceOrderDTO;
 import net.sf.jasperreports.engine.*;
@@ -46,6 +49,8 @@ public class PlaceOrderFormController implements Initializable {
     public TableColumn tblBalance;
     public TableView tblAllData;
 
+    private final PlaceOrderBO placeOrderBO = (PlaceOrderBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PLACEORDER);
+
 
     public void initialize(URL location, ResourceBundle resources) {
         setCellValueFactory();
@@ -71,7 +76,8 @@ public class PlaceOrderFormController implements Initializable {
         PlaceOrderDTO placeOrder = new PlaceOrderDTO(CId, Name, Address, ContactNo, OId, Date, Details, Qty, total);
 
 
-            boolean isAdd = PlaceOrderDAOImpl.orderPlace(placeOrder);
+            //boolean isAdd = PlaceOrderDAOImpl.orderPlace(placeOrder);
+            boolean isAdd = placeOrderBO.orderPlace(placeOrder);
             if (isAdd) {
                 new Alert(Alert.AlertType.CONFIRMATION, "added Success").show();
             } else {

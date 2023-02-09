@@ -2,6 +2,9 @@ package lk.ijse.RanasingheCinnamon.dao.custom.impl;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import lk.ijse.RanasingheCinnamon.dao.DAOFactory;
+import lk.ijse.RanasingheCinnamon.dao.SuperDAO;
+import lk.ijse.RanasingheCinnamon.dao.custom.OrderDetailDAO;
 import lk.ijse.RanasingheCinnamon.db.DBConnection;
 import lk.ijse.RanasingheCinnamon.dto.PlaceOrderDTO;
 import lk.ijse.RanasingheCinnamon.utill.CrudUtil;
@@ -10,7 +13,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PlaceOrderDAOImpl { //transaction (Updates orders,payment,customer tables)
-    public static boolean orderPlace(PlaceOrderDTO placeOrder) throws SQLException, ClassNotFoundException {
+
+   /* OrderDetailDAO orderDetailDAO = (OrderDetailDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ORDERDETAIL);*/
+    /*public boolean orderPlace(PlaceOrderDTO placeOrder) throws SQLException, ClassNotFoundException {
         try {
             DBConnection.getInstance().getConnection().setAutoCommit(false);
             boolean add = PlaceOrderDAOImpl.addCustomer(placeOrder);
@@ -19,7 +24,8 @@ public class PlaceOrderDAOImpl { //transaction (Updates orders,payment,customer 
                 if (isadd) {
                     boolean pay = PaymentsDAOImpl.addTotal(placeOrder);
                     if (pay) {
-                        boolean Details = OrderDetailDAOImpl.detail(placeOrder);
+//                        boolean Details = OrderDetailDAOImpl.detail(placeOrder);
+                        boolean Details = orderDetailDAO.detail(placeOrder);
                         if (Details) {
                             DBConnection.getInstance().getConnection().commit();
                             return true;
@@ -35,7 +41,7 @@ public class PlaceOrderDAOImpl { //transaction (Updates orders,payment,customer 
             DBConnection.getInstance().getConnection().setAutoCommit(true);
         }
         return false;
-    }
+    }*/
 
     public static boolean addCustomer(PlaceOrderDTO placeOrder) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("INSERT INTO customer VALUES (?,?,?,?)",
